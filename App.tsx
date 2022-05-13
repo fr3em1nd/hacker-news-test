@@ -1,22 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import React, { useState } from 'react'
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
+
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+
+import { Provider } from 'react-redux'
+import { Provider as PaperProvider } from 'react-native-paper'
+import { NewScreen } from '@hackernews/navigation/MainStack/screens/NewScreen'
+
+import AppLoading from 'expo-app-loading';
+import useFonts from '@hackernews/hooks/useFonts';
+import store from '@hackernews/redux/configureStore'
+import { AppStackPages } from '@hackernews/navigation/MainStack/MainStack.types';
+const Stack = createStackNavigator()
+
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+  if (__DEV__) {
+    import('./reactotron-config')
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
+  }
+  const [IsReady, SetIsReady] = useState(false);
+
+  const LoadFonts = async () => {
+    await useFonts();
+    console.log('fonts loaded')
+  };
+
+
+  if (!IsReady) {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
+      <AppLoading
+        startAsync={LoadFonts}
+        onFinish={() => SetIsReady(true)}
+        onError={() => { }}
+      />
     );
   }
+  return (
+    <Provider store={store}>
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="NewScreen"
+            screenOptions={{ headerShown: false, animationEnabled: false }}
+          >
+            <Stack.Screen name={AppStackPages.NewScreen} component={NewScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
+  )
 }
+

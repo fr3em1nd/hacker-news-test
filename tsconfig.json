@@ -1,6 +1,29 @@
 {
-  "extends": "expo/tsconfig.base",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts", "*.tsx"],
   "compilerOptions": {
-    "strict": true
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@hackernews/*": ["./src/*"]
+    },
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["es2017", "ES2015", "dom"],
+    "allowJs": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ],
+  "extends": "expo/tsconfig.base"
 }
