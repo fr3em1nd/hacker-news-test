@@ -6,5 +6,15 @@ export interface NewsItem {
   score: number,
   time: number,
   title: string,
+  authorKarma: number,
+  url: string
+}
+export interface Author {
+  about: string,
+  created: number,
+  delay: number,
+  id: string,
+  karma: number,
+  submitted: number[]
 }
  

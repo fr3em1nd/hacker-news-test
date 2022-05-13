@@ -25,7 +25,7 @@ export default (
 ): NewsState => {
   switch (action.type) {
 
-    case NewsEnums.TOP_NEWS:
+    case NewsEnums.TOP_NEWS_SUCCESS:
       return produce(state, draft => {
         draft.TopNews = action.payload;
       });

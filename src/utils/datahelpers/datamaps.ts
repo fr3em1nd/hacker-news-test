@@ -9,7 +9,9 @@ export const mapNewsItem = (params: any): NewsItem => {
       by: params.by || '',
       score: params.score || '',
       time: params.time || '',
-      title: params.title
+      title: params.title || '',
+      url: params.url || '',
+      authorKarma: params.authorKarma || ''
     }
   } else {
     return {
@@ -17,7 +19,9 @@ export const mapNewsItem = (params: any): NewsItem => {
       by: '',
       score: 0,
       time: 0,
-      title: ''
+      title: '',
+      authorKarma: 0,
+      url: ''
     };
   }
 };
