@@ -5,5 +5,5 @@ export const selectNews = (state: RootState) => state.News;
 
 export const mainNews = createSelector(
   selectNews,
-  news => news.News,
+  news => news.TopNews,
 );

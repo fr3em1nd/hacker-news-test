@@ -31,7 +31,6 @@ function* fetchTopNews() {
     let newsDataCompilation: NewsItem[] = [];
     for (let x = 0; parsedData.length > x; x++) {
       let topStories: NewsItem = JSON.parse(yield call(getTopStoriesContent, parsedData[x]));
-      console.log("topStoriestopStories",topStories)
       let authorKarma: Author = JSON.parse(yield call(getAuthorKarma, topStories.by));
       topStories.authorKarma = authorKarma.karma;
       newsDataCompilation.push(mapNewsItem(topStories))
