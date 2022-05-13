@@ -5,10 +5,18 @@ import { NewsItem, TopNews } from '@hackernews/interfaces/mainInterfaces';
 import { mapNewsItem } from '@hackernews/utils/datahelpers/datamaps';
 
 interface NewsState {
-  TopNews: TopNews[],
+  TopNews: NewsItem[],
 }
 const initState: NewsState = {
-  TopNews: [],
+  TopNews: [mapNewsItem({
+    news: '',
+    by: '',
+    score: 0,
+    time: 0,
+    title: ''
+  })
+  ]
+
 };
 
 export default (
