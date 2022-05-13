@@ -1,7 +1,4 @@
 
-export interface TopNews {
-  news: string;
-}
 
 export interface NewsItem {
   news: string,
@@ -9,4 +6,9 @@ export interface NewsItem {
   score: number,
   time: number,
   title: string,
+}
+
+
+export interface TopNews {
+  news: NewsItem[];
 }

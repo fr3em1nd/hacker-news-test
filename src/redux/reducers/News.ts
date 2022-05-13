@@ -6,17 +6,9 @@ import { mapNewsItem } from '@hackernews/utils/datahelpers/datamaps';
 
 interface NewsState {
   TopNews: TopNews[],
-  NewsItem: NewsItem,
 }
 const initState: NewsState = {
   TopNews: [],
-  NewsItem: mapNewsItem({
-    news: '',
-    by: '',
-    score: 0,
-    time: 0,
-    title: ''
-  }),
 };
 
 export default (
@@ -27,7 +19,7 @@ export default (
 
     case NewsEnums.TOP_NEWS:
       return produce(state, draft => {
-        draft.Profile = action.payload;
+        draft.TopNews = action.payload;
       });
 
     default:
