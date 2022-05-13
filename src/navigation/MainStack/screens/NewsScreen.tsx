@@ -7,9 +7,6 @@ import {
   Text, View,
 } from 'react-native';
 
-import { styles } from './NewsScreen.styles';
-import { ReactChild, ReactFragment, ReactPortal, } from 'react';
-
 
 
 export const NewScreen = () => {

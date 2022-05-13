@@ -1,7 +1,11 @@
 
 # Solomon Testing
 
-  
+## Technology used:
+- redux saga
+- redux
+- expo 
+- typescripts
 
 ## Hacker News with Redux State
 

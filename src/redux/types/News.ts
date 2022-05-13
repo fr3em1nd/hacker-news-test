@@ -1,11 +1,11 @@
-import { TopNews } from '@hackernews/interfaces/mainInterfaces';
+import { NewsItem } from '@hackernews/interfaces/mainInterfaces';
 import { NewsEnums } from '@hackernews/redux/actions/News';
 import { IAction } from './common';
 
 export enum regularVariables {
-normalString=
- 'normalString',
- numbers = 'numbers'
+  normalString =
+  'normalString',
+  numbers = 'numbers'
 }
 
 export interface normalStringData {
@@ -16,18 +16,16 @@ export interface normalStringData {
 
 export type TopNewsAction = IAction<
   typeof NewsEnums.TOP_NEWS,
-  TopNews
+  NewsItem[]
 >;
 
 export type TopNewsActionSuccess = IAction<
   typeof NewsEnums.TOP_NEWS,
-  TopNews
+  NewsItem[]
 >;
 
- 
+
 
 export type MainNewsActions =
   | TopNewsActionSuccess
-  | TopNewsAction
- 
-  ;
+  | TopNewsAction;
