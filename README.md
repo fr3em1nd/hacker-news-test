@@ -1,8 +1,9 @@
 
-# Solomon Testing
+# Solomon Exam
 
 ## Technology used:
-- redux saga
+- react-native
+- redux saga 
 - redux
 - expo 
 - typescripts
@@ -13,7 +14,8 @@
 
 ## Working Demo:
 
-To test this working app, you can use Expo.io or go to this link: [https://expo.dev/@fr3em1nd/hacker-news](https://expo.dev/@fr3em1nd/hacker-news)
+To test this working app, you can use Expo.io or go to this link: [https://expo.dev/@fr3em1nd/hacker-news](https://expo.dev/@fr3em1nd/hacker-news). For iOS you need to contact me to access the app. But for Android, this should work out of the box.
+
 
 If you have Expo on your computer, you can scan this expo QR Code:
 ![Expo QR](/readme_files/chrome_88doxdvgLp.png "Expo QR").
