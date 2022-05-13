@@ -8,6 +8,7 @@ import { createAction } from '@hackernews/redux/types/common';
 
 export enum NewsEnums {
   TOP_NEWS = 'TOP_NEWS',
+  TOP_NEWS_SUCCESS = 'TOP_NEWS_SUCCESS',
 
 }
 
@@ -18,6 +19,6 @@ export const fetchTopNews = (): TopNewsAction =>
 export const fetchTopNewsSuccess = (
   topNews: NewsItem[],
 ): TopNewsActionSuccess =>
-  createAction(NewsEnums.TOP_NEWS, topNews);
+  createAction(NewsEnums.TOP_NEWS_SUCCESS, topNews);
 
 

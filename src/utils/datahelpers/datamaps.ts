@@ -1,9 +1,10 @@
 import { NewsItem } from '@hackernews/interfaces/mainInterfaces';
 
 export const mapNewsItem = (params: any): NewsItem => {
+ 
+
   if (params) {
     return {
-
       news: params.news || '',
       by: params.by || '',
       score: params.score || '',

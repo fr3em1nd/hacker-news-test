@@ -9,28 +9,30 @@ import {
 
 
 import {
-  getTopStories
+  getTopStories, getTopStoriesContent
 } from '@hackernews/redux/sagas/api/News';
 
-
-import { TopNewsAction } from '@hackernews/redux/types/News';
 import { NewsItem } from '@hackernews/interfaces/mainInterfaces';
+import { getRandom } from '@hackernews/utils/datahelpers/dataparser';
+import { mapNewsItem } from '@hackernews/utils/datahelpers/datamaps';
 
 const logError = (error: any) => {
-  LoggingService.error(`Device Settings :: error: ${error.message}`);
-  LoggingService.error('Stack', error.stack);
+  LoggingService.error(`API REQUEST:  ${error.message}`);
 };
 
 
-function* fetchTopNews(action: TopNewsAction) {
+
+
+function* fetchTopNews() {
   try {
-    let topStories: any = yield call(getTopStories, null);
-    const shuffleNews = topStories.sort(() => 0.5 - Math.random());
-    let selectedTopTenNews = shuffleNews.slice(0, 10);
-    console.log('selectedTopTenNews', selectedTopTenNews);
-
-    // yield put(fetchTopNewsSuccess(mapMainAuthentication(data)));
-
+    let topStories: string = yield call(getTopStories);
+    let parsedData = getRandom(JSON.parse(topStories), 10)
+    let newsDataCompilation: NewsItem[] = [];
+    for (let x = 0; parsedData.length > x; x++) {
+      let topStories: NewsItem = JSON.parse(yield call(getTopStoriesContent, parsedData[x]));
+      newsDataCompilation.push(mapNewsItem(topStories))
+    }
+    yield put(fetchTopNewsSuccess(newsDataCompilation));
   } catch (error) {
     logError(error);
   }

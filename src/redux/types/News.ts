@@ -20,7 +20,7 @@ export type TopNewsAction = IAction<
 >;
 
 export type TopNewsActionSuccess = IAction<
-  typeof NewsEnums.TOP_NEWS,
+  typeof NewsEnums.TOP_NEWS_SUCCESS,
   NewsItem[]
 >;
 
