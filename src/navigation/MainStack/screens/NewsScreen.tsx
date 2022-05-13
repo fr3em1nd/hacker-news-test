@@ -1,17 +1,10 @@
 import {
-
   KeyboardAvoidingView,
-
   Platform,
-
-  Text, View,
+  Text
 } from 'react-native';
 
-
-
 export const NewScreen = () => {
-
-
 
   return (
     <KeyboardAvoidingView

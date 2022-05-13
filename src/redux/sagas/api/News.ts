@@ -4,10 +4,9 @@ import { HACKER_NEWS_ENDPOINT } from '@hackernews/constants/Config';
 import axios from 'axios';
 const logError = (messageRoot: string, error: any) => {
   LoggingService.error(
-    `USER DATA on ${messageRoot}: error: ${error.message}`,
+    `NEWS DATA on ${messageRoot}: error: ${error.message}`,
   );
 };
-
 
 export function getTopStories(): Promise<any> {
   return new Promise((resolve, reject) => {
