@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { Provider } from 'react-redux'
 import { Provider as PaperProvider } from 'react-native-paper'
-import { NewScreen } from '@hackernews/navigation/MainStack/screens/NewScreen'
+import { NewScreen } from '@hackernews/navigation/MainStack/screens/NewsScreen'
 
 import AppLoading from 'expo-app-loading';
 import useFonts from '@hackernews/hooks/useFonts';
